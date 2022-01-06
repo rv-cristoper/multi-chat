@@ -1,11 +1,41 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+import { IGrupalChat } from '../components/dashboard/IDashboard'
+
 export const Main = (): JSX.Element => {
 
     let navigate = useNavigate();
 
+    const chatStorageExist = () => {
+        const chatGroupInitial: IGrupalChat[] = [
+            {
+                id: 'kshtckuy',
+                name: 'Gastronomía',
+                type: 'group',
+                messages: []
+            },
+            {
+                id: 'spi2suta',
+                name: 'Deportes',
+                type: 'group',
+                messages: []
+            }
+        ]
+
+        const chatGroups = JSON.parse(localStorage.getItem("chatGroups")!)
+        const chatGeneral = JSON.parse(localStorage.getItem("chatGeneral")!)
+
+        if (!chatGroups) {
+            localStorage.setItem("chatGroups", JSON.stringify(chatGroupInitial));
+        }
+        if (!chatGeneral) {
+            localStorage.setItem("chatGeneral", JSON.stringify([]));
+        }
+    }
+
     const next = () => {
+        chatStorageExist()
         const user = {
             id: Math.random().toString(36).substr(2, 9),
             name: "anónimo",

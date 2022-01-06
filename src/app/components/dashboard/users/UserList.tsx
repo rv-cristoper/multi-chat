@@ -18,24 +18,22 @@ const UserList = (): JSX.Element => {
         const userList = JSON.parse(localStorage.getItem("userList")!)
         const user = JSON.parse(sessionStorage.getItem("user")!)
 
-        if (user) {
-            if (userList) {
-                let exists: boolean = false
-                userList.map((member: IUser) => {
-                    if (member.id === user.id) {
-                        exists = true
-                    }
-                    return exists
-                })
-
-                if (!exists) {
-                    userList.push(user)
+        if (userList) {
+            let exists: boolean = false
+            userList.map((member: IUser) => {
+                if (member.id === user.id) {
+                    exists = true
                 }
-            }
+                return exists
+            })
 
-            localStorage.setItem("userList", JSON.stringify(userList ? userList : [user]));
-            setMemberList(userList ? userList : [user])
+            if (!exists) {
+                userList.push(user)
+            }
         }
+
+        localStorage.setItem("userList", JSON.stringify(userList ? userList : [user]));
+        setMemberList(userList ? userList : [user])
     }
 
     useEffect(() => {
@@ -55,7 +53,7 @@ const UserList = (): JSX.Element => {
             <div className='containerUsers'>
                 {
                     memberList.map((user: IUser, key: number) =>
-                        <UserItem id={user.id} name={user.name} status={user.status} key={key}/>
+                        <UserItem id={user.id} name={user.name} status={user.status} key={key} />
                     )
                 }
             </div>
