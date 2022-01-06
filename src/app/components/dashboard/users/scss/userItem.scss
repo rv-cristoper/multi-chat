@@ -1,0 +1,27 @@
+.userItem {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    column-gap: 20px;
+    border-bottom: 1px solid #c7c7c7;
+    &:last-child {
+        border: none;
+    }
+    .circle {
+        font-size: 10px;
+        color: #c7c7c7;
+        &.active {
+            color: green;
+        }
+    }
+    p {
+        margin: 0;
+        width: 100%;
+    }
+    .opnChat {
+        padding: 10px;
+        background-color: #c7c7c7;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+}

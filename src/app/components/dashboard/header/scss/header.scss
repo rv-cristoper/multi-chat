@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    align-items: center;
+    font-size: 18px;
+    border-bottom: 1px #c7c7c7 solid;
+    .titMessage {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        p {
+            margin: 0;
+            font-size: 25px;
+        }
+        i {
+            font-size: 25px;
+        }
+    }
+    .infUser {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        i {
+            font-size: 22px;
+        }
+    }
+}

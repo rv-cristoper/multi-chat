@@ -1,0 +1,17 @@
+.userList {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #c7c7c7;
+    overflow-y: auto;
+    .titleList {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #c7c7c7;
+    }
+    .containerUsers {
+        padding: 5px 20px;
+        overflow-y: auto;
+    }
+}

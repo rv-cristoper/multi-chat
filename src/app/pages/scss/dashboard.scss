@@ -1,0 +1,11 @@
+.dashboard {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 70px auto;
+    .containerElements{
+        display: grid;
+        grid-template-columns: 350px auto 350px;
+        overflow-y: auto;
+    }
+}
