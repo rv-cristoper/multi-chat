@@ -13,6 +13,7 @@ const GrupalChats = ({ setChatSelect, chatSelect }: IProps): JSX.Element => {
 
     const [idSelect, setIdSelect] = useState<string>(chatSelect ? chatSelect.id : '')
 
+    // Función para obtener los chats grupales
     const getGrupalChats = () => {
 
         const grupalChats = JSON.parse(localStorage.getItem("chatGroups")!)
@@ -20,6 +21,7 @@ const GrupalChats = ({ setChatSelect, chatSelect }: IProps): JSX.Element => {
 
     }
 
+    //Función para añadir un nuevo chat al grupo
     const addGrupalChat = () => {
         const grupalChats = JSON.parse(localStorage.getItem("chatGroups")!)
         if (nameNewGroup) {

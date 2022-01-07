@@ -19,6 +19,7 @@ const UserList = ({ setaddNewChat }: IProps): JSX.Element => {
 
     const [memberList, setMemberList] = useState<IUser[]>([])
 
+    // Función que filtra los usuarios
     const users = useMemo(() => {
         const getUser = JSON.parse(sessionStorage.getItem("user")!)
         if (!search) return memberList.filter((user: any) => {
@@ -29,6 +30,7 @@ const UserList = ({ setaddNewChat }: IProps): JSX.Element => {
         });
     }, [search, memberList])
 
+    // Función que valida y agrega un usuario si este no existe.
     const userExist = () => {
 
         const userList = JSON.parse(localStorage.getItem("userList")!)

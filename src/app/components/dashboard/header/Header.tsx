@@ -11,6 +11,7 @@ const Header = (): JSX.Element => {
     const [name, setName] = useState<string>(user.name)
     const [edit, setEdit] = useState<boolean>(false)
 
+    // Función para cambiar el nombre tanto en el sessionStorage y la lista de usuarios del localStorage
     const changeName = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (name) {

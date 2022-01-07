@@ -13,6 +13,7 @@ const PrivateChats = ({ chatSelect, setChatSelect, addnewChat }: IProps): JSX.El
 
     const [privateChatList, setPrivateChatList] = useState<IPrivateChat[]>([])
 
+    // Función para obtener los chats en donde se encuentra mi id de usuario.
     const getprivateChats = () => {
 
         const user = JSON.parse(sessionStorage.getItem("user")!)
@@ -32,6 +33,7 @@ const PrivateChats = ({ chatSelect, setChatSelect, addnewChat }: IProps): JSX.El
 
     }
 
+    // Función para obtener el nombre del usuario mediante un id de array de miembros. 
     const getNameUser = (members: string[]): string => {
         let idUser: string = ''
         const user = JSON.parse(sessionStorage.getItem("user")!)

@@ -11,6 +11,7 @@ const Messages = ({ chatSelect }: IProps): JSX.Element => {
     const [messageList, setMessageList] = useState<IMessage[]>(chatSelect?.messages || [])
     const [msg, setmsg] = useState<string>('')
 
+    // Funcion para enviar mensaje, modificaar en el localStorage mediante la validacion de chat grupal o privado.
     const sendMessage = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (msg) {
@@ -70,6 +71,7 @@ const Messages = ({ chatSelect }: IProps): JSX.Element => {
         }
     }
 
+     // Función para obtener el nombre del usuario mediante un id de array de miembros.
     const getNameUser = (): string => {
         let idUser: string = ''
         chatSelect.members.map((member: string) => {
@@ -92,6 +94,7 @@ const Messages = ({ chatSelect }: IProps): JSX.Element => {
         return newName
     }
 
+    // Función para eliminar mensaje solo al usuario, se usa la variable noVisible en donde se coloca los id de los usuarios que no desean ver el mensaje.
     const deleteMsg = (id: string) => {
 
         const chatGroups = JSON.parse(localStorage.getItem("chatGroups")!)

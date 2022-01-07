@@ -8,6 +8,7 @@ export const Main = (): JSX.Element => {
 
     let navigate = useNavigate();
 
+    // Validación y creacion de los localStorage de chat
     const chatStorageExist = () => {
         const chatGroupInitial: IGrupalChat[] = [
             {
@@ -35,6 +36,7 @@ export const Main = (): JSX.Element => {
         }
     }
 
+    //Validación y creacion del sessionStorage
     const next = () => {
         chatStorageExist()
         const user = {
