@@ -11,17 +11,23 @@
         font-size: 10px;
         color: #c7c7c7;
         &.active {
-            color: green;
+            color: #27cd41;
         }
     }
     p {
         margin: 0;
         width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
     .opnChat {
         padding: 10px;
-        background-color: #c7c7c7;
+        background-color: #aec7e1;
         border-radius: 6px;
         cursor: pointer;
+        i {
+            color: #151e5a;
+        }
     }
 }

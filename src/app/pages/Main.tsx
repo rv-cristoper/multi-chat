@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import './scss/main.scss'
 
 import { IGrupalChat } from '../components/dashboard/IDashboard'
 
@@ -46,8 +47,12 @@ export const Main = (): JSX.Element => {
     }
 
     return (
-        <div>
-            <button onClick={next}>Comenzar</button>
+        <div className='main'>
+            <div className='contentInfo'>
+                <h1>MultiChat App</h1>
+                <p>Chatea localmente de una manera rápida y divertida.</p>
+                <button onClick={next}>Comenzar</button>
+            </div>
         </div>
     )
 }

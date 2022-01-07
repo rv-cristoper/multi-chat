@@ -3,7 +3,7 @@ export interface IMessage {
     user: string
     idUser: string
     message: string
-    noVisible: []
+    noVisible: string[]
 }
 export interface IGrupalChat {
     id: string

@@ -11,6 +11,8 @@ const Dashboard = (): JSX.Element => {
     const [optSelect, setOptSelect] = useState<string>('private-chat')
     const [chatSelect, setChatSelect] = useState<any>()
 
+    const [addnewChat, setaddNewChat] = useState<string>('')
+
     const user = JSON.parse(sessionStorage.getItem("user")!)
 
     return (
@@ -20,9 +22,9 @@ const Dashboard = (): JSX.Element => {
                 <div className='dashboard'>
                     <Header />
                     <div className='containerElements'>
-                        <Chats optSelect={optSelect} setOptSelect={setOptSelect} setChatSelect={setChatSelect} />
+                        <Chats optSelect={optSelect} setOptSelect={setOptSelect} chatSelect={chatSelect} setChatSelect={setChatSelect} addnewChat={addnewChat}/>
                         <Messages chatSelect={chatSelect} />
-                        <UserList />
+                        <UserList setaddNewChat={setaddNewChat} />
                     </div>
                 </div>
             }

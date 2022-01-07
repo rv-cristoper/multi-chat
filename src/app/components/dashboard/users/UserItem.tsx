@@ -8,9 +8,10 @@ interface IProps {
     id: string
     name: string
     status: boolean
+    setaddNewChat: React.Dispatch<React.SetStateAction<string>>
 }
 
-const UserItem = ({ id, name, status }: IProps): JSX.Element => {
+const UserItem = ({ id, name, status, setaddNewChat }: IProps): JSX.Element => {
 
     const createNewChat = () => {
 
@@ -26,20 +27,22 @@ const UserItem = ({ id, name, status }: IProps): JSX.Element => {
         })
 
         if (!existChat) {
+            const newID = Math.random().toString(36).substr(2, 9);
             const chat: IPrivateChat = {
-                id: Math.random().toString(36).substr(2, 9),
+                id: newID,
                 type: 'private',
                 messages: [],
                 members: [id, user.id]
             }
             privateChats.push(chat)
             localStorage.setItem("chatGeneral", JSON.stringify(privateChats));
+            setaddNewChat(newID)
         }
     }
 
     return (
         <div className='userItem'>
-            <i className="fas fa-circle circle" />
+            <i className="fas fa-circle circle active" />
             <p>{name}</p>
             <div className='opnChat' onClick={createNewChat}>
                 <i className="fas fa-comment-alt" />

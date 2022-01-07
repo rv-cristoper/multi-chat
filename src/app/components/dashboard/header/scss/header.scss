@@ -24,15 +24,34 @@
         column-gap: 10px;
         span {
             text-transform: capitalize;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            max-width: 250px;
         }
         i {
             font-size: 22px;
             cursor: pointer;
         }
+        .edit {
+            color: #ffcc02;
+        }
+        .save {
+            color: #27cd41;
+        }
         button {
             border: navajowhite;
             background-color: inherit;
             padding: 0;
+        }
+        input {
+            border-radius: 10px;
+            border: 1px solid #c7c7c7;
+            padding: 0 20px;
+            outline: none;
+            height: 30px;
+            box-sizing: border-box;
         }
     }
 }

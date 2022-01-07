@@ -7,10 +7,12 @@ import PrivateChats from './PrivateChats'
 interface IProps {
     optSelect: string
     setOptSelect: React.Dispatch<React.SetStateAction<string>>
+    chatSelect: any
     setChatSelect: any
+    addnewChat: string
 }
 
-const Chats = ({ optSelect, setOptSelect, setChatSelect }: IProps): JSX.Element => {
+const Chats = ({ optSelect, setOptSelect, chatSelect, setChatSelect, addnewChat }: IProps): JSX.Element => {
 
 
     return (
@@ -21,9 +23,9 @@ const Chats = ({ optSelect, setOptSelect, setChatSelect }: IProps): JSX.Element 
             </div>
             {
                 optSelect === 'private-chat' ?
-                    <PrivateChats setChatSelect={setChatSelect} />
+                    <PrivateChats chatSelect={chatSelect} setChatSelect={setChatSelect} addnewChat={addnewChat} />
                     :
-                    <GrupalChats setChatSelect={setChatSelect} />
+                    <GrupalChats chatSelect={chatSelect}  setChatSelect={setChatSelect} />
             }
 
         </div >

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useMemo, useState } from 'react'
 import UserItem from './UserItem'
 
 import './scss/userList.scss'
@@ -9,10 +9,25 @@ interface IUser {
     status: boolean
 }
 
-const UserList = (): JSX.Element => {
+interface IProps {
+    setaddNewChat: React.Dispatch<React.SetStateAction<string>>
+}
+
+const UserList = ({ setaddNewChat }: IProps): JSX.Element => {
+
+    const [search, setSearch] = useState<string>('');
 
     const [memberList, setMemberList] = useState<IUser[]>([])
-    const getUser = JSON.parse(sessionStorage.getItem("user")!)
+
+    const users = useMemo(() => {
+        const getUser = JSON.parse(sessionStorage.getItem("user")!)
+        if (!search) return memberList.filter((user: any) => {
+            return user.id !== getUser.id;
+        })
+        return memberList.filter((user: any) => {
+            return user.name.toLowerCase().includes(search.toLowerCase()) && user.id !== getUser.id;
+        });
+    }, [search, memberList])
 
     const userExist = () => {
 
@@ -51,14 +66,22 @@ const UserList = (): JSX.Element => {
             <div className='titleList'>
                 Usuarios
             </div>
+            <div className='spaceToSearch'>
+                <input type="text" value={search} placeholder='Buscar usuario...' onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)} />
+            </div>
             <div className='containerUsers'>
+                {/* {
+                    users.map((user: IUser, key: number) =>
+                        <UserItem id={user.id} name={user.name} status={user.status} key={key} setaddNewChat={setaddNewChat} />
+                    )
+                } */}
                 {
-                    memberList.map((user: IUser, key: number) => {
-                        if (user.id !== getUser.id) {
-                            return <UserItem id={user.id} name={user.name} status={user.status} key={key} />
-                        }
-                        return null
-                    })
+                    (!users.length && !search) ? <div>Ningún usuario conectado.</div>
+                        : (!users.length && search) ? <div>Sin resultados para su búsqueda.</div>
+                            :
+                            users.map((user: IUser, key: number) =>
+                                <UserItem id={user.id} name={user.name} status={user.status} key={key} setaddNewChat={setaddNewChat} />
+                            )
                 }
             </div>
         </div >
