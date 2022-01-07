@@ -5,7 +5,7 @@ import { IGrupalChat, IMessage } from '../IDashboard'
 import './scss/messages.scss'
 
 interface IProps {
-    chatSelect: IGrupalChat | undefined
+    chatSelect: IGrupalChat | undefined 
 }
 
 const Messages = ({ chatSelect }: IProps): JSX.Element => {
@@ -99,7 +99,7 @@ const Messages = ({ chatSelect }: IProps): JSX.Element => {
                                     <div className={`messageItem ${message.idUser !== user.id ? 'other' : ''}`} key={key}>
                                         {
                                             message.idUser !== user.id &&
-                                            <span>{message.idUser}</span>
+                                            <span>{message.user}</span>
                                         }
                                         <p>{message.message}</p>
                                     </div>

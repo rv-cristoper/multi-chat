@@ -10,7 +10,7 @@ import './scss/dashboard.scss'
 
 const Dashboard = (): JSX.Element => {
 
-    const [optSelect, setOptSelect] = useState<string>('group-chat')
+    const [optSelect, setOptSelect] = useState<string>('private-chat')
     const [chatSelect, setChatSelect] = useState<IGrupalChat>()
 
     const user = JSON.parse(sessionStorage.getItem("user")!)

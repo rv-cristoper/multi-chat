@@ -2,6 +2,7 @@ import React from 'react'
 import GrupalChats from './GrupalChats'
 import { IGrupalChat } from '../IDashboard'
 import './scss/chats.scss'
+import PrivateChats from './PrivateChats'
 
 
 interface IProps {
@@ -21,7 +22,7 @@ const Chats = ({ optSelect, setOptSelect, setChatSelect }: IProps): JSX.Element 
             </div>
             {
                 optSelect === 'private-chat' ?
-                    <div>xd</div>
+                    <PrivateChats />
                     :
                     <GrupalChats setChatSelect={setChatSelect} />
             }

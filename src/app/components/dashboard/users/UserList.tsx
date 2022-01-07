@@ -12,6 +12,7 @@ interface IUser {
 const UserList = (): JSX.Element => {
 
     const [memberList, setMemberList] = useState<IUser[]>([])
+    const getUser = JSON.parse(sessionStorage.getItem("user")!)
 
     const userExist = () => {
 
@@ -52,9 +53,12 @@ const UserList = (): JSX.Element => {
             </div>
             <div className='containerUsers'>
                 {
-                    memberList.map((user: IUser, key: number) =>
-                        <UserItem id={user.id} name={user.name} status={user.status} key={key} />
-                    )
+                    memberList.map((user: IUser, key: number) => {
+                        if (user.id !== getUser.id) {
+                            return <UserItem id={user.id} name={user.name} status={user.status} key={key} />
+                        }
+                        return null
+                    })
                 }
             </div>
         </div >

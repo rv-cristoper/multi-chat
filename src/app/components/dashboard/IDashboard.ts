@@ -1,3 +1,10 @@
+export interface IMessage {
+    id: string
+    user: string
+    idUser: string
+    message: string
+    noVisible: []
+}
 export interface IGrupalChat {
     id: string
     name: string
@@ -5,10 +12,15 @@ export interface IGrupalChat {
     messages: IMessage[]
 }
 
-export interface IMessage {
+export interface IPrivateChat {
     id: string
-    user: string
-    idUser: string
-    message: string
-    noVisible: []
+    type: string
+    messages: IMessage[]
+    members: string[]
+}
+
+export interface IUser {
+    id: string
+    name: string
+    status: boolean
 }
