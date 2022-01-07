@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { IPrivateChat } from '../IDashboard'
 
 interface IProps {
-    setChatSelect: React.Dispatch<React.SetStateAction<IPrivateChat | undefined>>
+    setChatSelect: any
 }
 
-const PrivateChats = (): JSX.Element => {
+const PrivateChats = ({ setChatSelect }: IProps): JSX.Element => {
 
 
 
@@ -44,7 +44,7 @@ const PrivateChats = (): JSX.Element => {
         <div className='bodyChat'>
             {
                 privateChatList.map((privateChat: IPrivateChat, key: number) =>
-                    <div className='chatItem active' key={key}>
+                    <div className='chatItem active' key={key} onClick={() => setChatSelect(privateChat)}>
                         <i className="far fa-user-circle" />
                         <p>{privateChat.id}</p>
                     </div>

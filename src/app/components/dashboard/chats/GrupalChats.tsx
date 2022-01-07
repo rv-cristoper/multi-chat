@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IGrupalChat } from '../IDashboard'
 
 interface IProps {
-    setChatSelect: React.Dispatch<React.SetStateAction<IGrupalChat | undefined>>
+    setChatSelect: any
 }
 
 const GrupalChats = ({ setChatSelect }: IProps): JSX.Element => {
